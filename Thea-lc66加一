@@ -1,0 +1,10 @@
+class Solution:
+    def plusOne(self, ds: List[int]) -> List[int]:
+        #从后往前查找9，第一个！=9的数字，+1，并后续都为0
+        for k in range(len(ds)-1,-1,-1):
+                if ds[k] !=9:
+                ds[k] = ds[k]+1  
+                for j in range(k+1,len(ds)):#如果第一个！=0的数字是最后一个，那么这个j则为空
+                    ds[j] = 0
+                return ds#这个return ds放在这个位置，表示找到一个！=9即停止         
+        return [1]+[0]*len(ds)
